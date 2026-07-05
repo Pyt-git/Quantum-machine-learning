@@ -74,27 +74,3 @@ This enables importance sampling of noisy quantum circuits without resimulation.
 # License
 
 MIT license.
-
-# Diagram
-
-```mermaid
-flowchart TD
-    subgraph Quantum
-        A[Circuit: U(θ)]
-        B[ShotGradientEstimator]
-    end
-
-    subgraph Noise
-        C[NoiseModel: SDE + RN]
-    end
-
-    subgraph Classical
-        E[HybridModel]
-        D[Trainer: Adam]
-    end
-
-    A --> B
-    C --> B
-    B --> D
-    E --> D
-    D --> F[Simulator Wrapper]
