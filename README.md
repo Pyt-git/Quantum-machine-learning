@@ -64,6 +64,23 @@ and reweights expectations under a different noise law Q: dQ/dP.
 
 This enables importance sampling of noisy quantum circuits without resimulation. 
 
+# Design philosophy
+
+This simulator is built around a simple idea: research engines should be transparent, modular and mathematically honest.
+Every component - circuits, noise models, gradients and training loops - is designed to expose its internal logic rather than hide it behind abstractions. 
+
+The architecture follows three principles: 
+
+- Mathematical correctness: Every transformation, gradient rule and stochastic update is derived from first principles.
+  No heuristics, no shortcuts. If a formula appears, it exists because it can be proven.
+- Modular abstraction: Each subsystem (circuit, noise, optimizer, sampler) is isolated behind a minimal API.
+  This keeps the engine flexible enough for experimentation while remaining predictable under composition.
+- Transparency over magic: The simulator avoids opaque "black-box" behavior.
+  Parameter-shift gradients, Radon-Nikodym reweighting and SDE-based noise models are implemented explicitly so users can inspect, modify or extend them.
+
+This project is not meant to be a production-ready quantum framework.
+It is meant to be a research playground - a place where mathematical ideas can be implemented cleanly, tested quickly and understood deeply. 
+
 # Example experiments
 
 - Noisy VQE with RN reweighting
