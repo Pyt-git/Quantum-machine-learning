@@ -12,3 +12,6 @@ A modular research engine combining variational circuits, stochastic noise model
 
 ## Experiments
 Two example experiments demonstrating full simulator usage.
+
+## Repository
+https://www.github.com/Pyt-git/Quantum-machine-learning
